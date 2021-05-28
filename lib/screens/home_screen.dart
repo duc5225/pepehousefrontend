@@ -29,7 +29,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return GestureDetector(
       onTap: () {
         Navigator.push(
-            context, MaterialPageRoute(builder: (context) => FormScreen()));
+            context, MaterialPageRoute(builder: (context) => LoginScreen()));
         setState(() {
           _selectedIndex = index;
         });

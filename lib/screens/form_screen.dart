@@ -35,7 +35,7 @@ class _FormScreenState extends State<FormScreen> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 50),
               child: Container(
-                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 150),
+                padding: EdgeInsets.symmetric(horizontal: 150, vertical: 150),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
                   color: Colors.black,

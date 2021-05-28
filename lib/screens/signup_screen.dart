@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:pepetravel/screens/signup_screen.dart';
 
-class LoginScreen extends StatefulWidget {
+class SignupScreen extends StatefulWidget {
   @override
-  _LoginScreenState createState() => _LoginScreenState();
+  _SignupScreenState createState() => _SignupScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _SignupScreenState extends State<SignupScreen> {
+  final _usernameController = TextEditingController();
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
+  final _phoneController = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    final _usernameController = TextEditingController();
-    final _passwordController = TextEditingController();
     return Scaffold(
       body: Stack(
         children: [
@@ -33,91 +34,46 @@ class _LoginScreenState extends State<LoginScreen> {
           Container(
             height: double.infinity,
             child: SingleChildScrollView(
-              physics: AlwaysScrollableScrollPhysics(),
+              physics: NeverScrollableScrollPhysics(),
               padding: EdgeInsets.symmetric(
                 horizontal: 40,
-                vertical: 120,
+                vertical: 80,
               ),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'Sign in',
+                    'Sign up',
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 32,
                         fontWeight: FontWeight.bold),
                   ),
-                  SizedBox(
-                    height: 30,
-                  ),
+                  SizedBox(height: 30),
                   _buildTextField(
                       _usernameController, 'Username', Icons.person, false),
                   SizedBox(height: 15),
                   _buildTextField(
                       _passwordController, 'Password', Icons.lock, true),
                   SizedBox(height: 15),
-                  Container(
-                    alignment: Alignment.centerRight,
-                    child: Text(
-                      'Forgot Password?',
-                      style: TextStyle(
-                        fontSize: 13,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Container(
-                    padding: EdgeInsets.symmetric(vertical: 15),
-                    width: double.infinity,
-                    child: RaisedButton(
-                      elevation: 5,
-                      padding: EdgeInsets.all(15),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30)),
-                      onPressed: () {
-                        print(_usernameController.text +
-                            _passwordController.text);
-                        Navigator.pop(context);
-                      },
-                      child: Text(
-                        'Login',
-                        style: TextStyle(
-                          color: Colors.green,
-                          fontSize: 20,
+                  _buildTextField(
+                      _emailController, 'Email', Icons.email, false),
+                  SizedBox(height: 15),
+                  _buildTextField(
+                      _phoneController, 'Phone', Icons.phone, false),
+                  SizedBox(height: 30),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Container(
+                          margin: EdgeInsets.symmetric(horizontal: 10),
+                          child: Divider(
+                            color: Colors.white,
+                          ),
                         ),
                       ),
-                    ),
+                    ],
                   ),
-                  SizedBox(height: 20),
-                  Row(children: [
-                    Expanded(
-                      child: Container(
-                        margin: EdgeInsets.symmetric(horizontal: 10),
-                        child: Divider(
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
-                    Text(
-                      "Dont have an account?",
-                      style: TextStyle(
-                        fontSize: 13,
-                        color: Colors.white,
-                      ),
-                    ),
-                    Expanded(
-                      child: Container(
-                        margin: EdgeInsets.symmetric(horizontal: 10),
-                        child: Divider(
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
-                  ]),
                   SizedBox(
                     height: 15,
                   ),
@@ -130,13 +86,30 @@ class _LoginScreenState extends State<LoginScreen> {
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(30)),
                       onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => SignupScreen()));
+                        Widget okButton = TextButton(
+                          child: Text("OK"),
+                          onPressed: () {
+                            Navigator.pop(context);
+                            Navigator.pop(context);
+                          },
+                        );
+                        AlertDialog alert = AlertDialog(
+                          title: Text('Sign up successful'),
+                          content: Text(
+                              "Sign up successful, please go back and log in"),
+                          actions: [
+                            okButton,
+                          ],
+                        );
+                        showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return alert;
+                          },
+                        );
                       },
                       child: Text(
-                        'Sign up now',
+                        'Sign up',
                         style: TextStyle(
                           color: Colors.green,
                           fontSize: 20,
