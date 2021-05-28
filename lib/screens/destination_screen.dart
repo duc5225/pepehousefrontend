@@ -124,7 +124,7 @@ class _DestinationScreenState extends State<DestinationScreen>
                                             setState(() => isExpanded = true),
                                       ),
                               )
-                            : SizedBox(),
+                            : Container(),
                       ],
                     ),
                   ),
@@ -171,7 +171,7 @@ class _DestinationScreenState extends State<DestinationScreen>
                     ),
                     onPressed: () => {},
                     child: Text(
-                      'Thêm vào chuyến đi',
+                      'Thêm vào giỏ hàng',
                       style: TextStyle(
                         fontSize: 17,
                       ),

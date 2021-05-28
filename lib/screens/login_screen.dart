@@ -82,7 +82,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                         child: TextField(
                           controller: _emailController,
-                          keyboardType: TextInputType.emailAddress,
+                          keyboardType: TextInputType.text,
                           style: TextStyle(color: Colors.white),
                           decoration: InputDecoration(
                             border: InputBorder.none,

@@ -1,2 +1,2 @@
-const String appName = 'Pepe Travel';
+const String appName = 'Pepe House';
 const double titleFontSize = 24.0;

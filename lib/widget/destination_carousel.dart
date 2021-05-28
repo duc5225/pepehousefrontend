@@ -9,7 +9,7 @@ class DestinationCarousel extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        CarouselTitle('Gợi ý điểm đến'),
+        CarouselTitle('Gợi ý nhà'),
         SizedBox(
           height: 10,
         ),

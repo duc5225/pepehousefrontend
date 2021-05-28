@@ -8,7 +8,7 @@ class DestinationImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 130,
+      height: destination.imageUrl.length > 1 ? 130 : 0,
       child: Scrollbar(
         child: ListView.builder(
           scrollDirection: Axis.horizontal,

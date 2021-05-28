@@ -7,7 +7,7 @@ class CityCarousel extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        CarouselTitle('Địa điểm nổi bật'),
+        CarouselTitle('Thành phố'),
         SizedBox(
           height: 10,
         ),
@@ -43,7 +43,7 @@ class CityCarousel extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                '${city.activity.length} chuyến đi',
+                                '${city.activity.length} ngôi nhà',
                                 style: TextStyle(
                                   fontSize: 22,
                                   fontWeight: FontWeight.w600,

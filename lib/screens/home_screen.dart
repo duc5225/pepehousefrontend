@@ -8,6 +8,7 @@ import 'package:http/http.dart';
 
 import '../appbar/custom_drawer.dart';
 import '../appbar/base_app_bar.dart';
+import 'form_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -28,7 +29,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return GestureDetector(
       onTap: () {
         Navigator.push(
-            context, MaterialPageRoute(builder: (context) => LoginScreen()));
+            context, MaterialPageRoute(builder: (context) => FormScreen()));
         setState(() {
           _selectedIndex = index;
         });
