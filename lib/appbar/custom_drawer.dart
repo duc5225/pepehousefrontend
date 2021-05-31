@@ -1,10 +1,44 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:pepetravel/screens/login_screen.dart';
 import '../config.dart';
-import 'custom_list_tile.dart';
 
 class CustomDrawer extends StatelessWidget {
-  CustomDrawer();
+  Widget _buildListTile(
+      String text, IconData icon, BuildContext context, Widget screen) {
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
+      child: Container(
+        decoration: BoxDecoration(
+            border: Border(bottom: BorderSide(color: Colors.grey.shade200))),
+        height: 65,
+        child: InkWell(
+          splashColor: Colors.lightGreenAccent,
+          onTap: () => {
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => screen))
+          },
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Row(
+                children: [
+                  Icon(icon),
+                  Padding(padding: const EdgeInsets.all(7)),
+                  Text(
+                    text,
+                    style: TextStyle(fontSize: 15),
+                  ),
+                ],
+              ),
+              Icon(Icons.arrow_right)
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -39,9 +73,10 @@ class CustomDrawer extends StatelessWidget {
               ),
             ),
           ),
-          CustomListTile('Điểm đến', Icons.location_on),
-          CustomListTile('Chuyến đi', Icons.airplanemode_active),
-          CustomListTile('Bảng tin', Icons.article_outlined),
+          _buildListTile('Đăng nhập', Icons.person, context, LoginScreen()),
+          _buildListTile('Tìm nhà', Icons.house, context, LoginScreen()),
+          _buildListTile(
+              'Thông báo', Icons.article_outlined, context, LoginScreen()),
         ],
       ),
     );
